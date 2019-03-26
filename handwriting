@@ -4,8 +4,9 @@ clear all
 close all
 %% 读取图片 
 img = imread('handWrite2.jpg');
+% 图片缩放，1024*1024
 img=imresize(img,[1024 1024]);
-% 图片灰度化，文字反色
+% 图片灰度化，文字反色 消除图像色调和饱和度信息同时保留亮度实现将将RGB图像或彩色图转换为灰度图像 uint8是指0~2^8-1 = 255数据类型
 imgGray =uint8(255- rgb2gray(img));
 % 拉平背景后进行二值化
 imgGrayBG=imgaussfilt(imgGray,5);%10 6  5
